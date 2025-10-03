@@ -1,69 +1,110 @@
-# React + TypeScript + Vite
+# Product list with cart solution - Frontend Mentor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d).  
+Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of contents
 
-## Expanding the ESLint configuration
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Overview
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### The challenge
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Users should be able to:
+
+- Add items to the cart and remove them
+- Increase/decrease the number of items in the cart
+- See an order confirmation modal when they click **Confirm Order**
+- Reset their selections when they click **Start New Order**
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+
+### Screenshot
+
+![](./screenshot.jpg)
+
+### Links
+
+- Solution URL: [https://www.frontendmentor.io/solutions/product-list-with-cart-using-react-vite-ts-tailwind-framer-motion](https://www.frontendmentor.io/solutions/product-list-with-cart-using-react-vite-ts-tailwind-framer-motion)
+- Live Site URL: [https://amin-muhammed.github.io/product-list-with-tsx](https://amin-muhammed.github.io/product-list-with-tsx)
+
+---
+
+## My process
+
+### Built with
+
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/) – fully typed
+- [Tailwind CSS](https://tailwindcss.com/) – styling
+- [Framer Motion](https://www.framer.com/motion/) – animations
+- CSS Grid (with `auto-fit`) for responsive layouts
+- Mobile-first workflow
+
+### What I learned
+
+The purpose of this project was to learn how to create a **fully typed React project** using TypeScript while also practicing Tailwind CSS and Framer Motion.
+
+Key learnings:
+
+- How to **fully type React Context** for a cart system.
+- Practicing responsive layouts with the **CSS Grid auto-fit trick**.
+- Implementing smooth UI **animations with Framer Motion**.
+- Strengthened understanding of **React + TypeScript integration**.
+
+One of the most challenging parts was typing the **cart logic** so that adding/removing items worked safely without using `any`.
+
+Here’s an example of my typed cart context:
+
+```ts
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+interface CartContextType {
+  items: CartItem[];
+  addItem: (item: CartItem) => void;
+  removeItem: (id: number) => void;
+  resetCart: () => void;
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Continued Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Things I want to focus on in future projects:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Add testing (React Testing Library + Vitest)
+- Work more with advanced animations in Framer Motion
+- Improve accessibility (focus traps, ARIA roles)
+- Try Zustand or Redux Toolkit for larger-scale state management
+
+---
+
+# Useful Resources
+
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) – helped me strengthen typing concepts
+
+# Author
+
+- Frontend Mentor - [@Amin-Muhammed](https://www.frontendmentor.io/profile/Amin-Muhammed)
+- GitHub - [@Amin-Muhammed](https://github.com/Amin-Muhammed)
+
+# test
