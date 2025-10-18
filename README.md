@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/Amin-Muhammed/product-list-with-tsx.git](https://github.com/Amin-Muhammed/product-list-with-tsx.git)
-- Live Site URL: [papaya-nougat-0675bf.netlify.app](papaya-nougat-0675bf.netlify.app)
+- Live Site URL: [https://papaya-nougat-0675bf.netlify.app](https://papaya-nougat-0675bf.netlify.app)
 
 ---
 
