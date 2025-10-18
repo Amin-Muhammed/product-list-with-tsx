@@ -20,8 +20,8 @@ const ModalContent = ({
   if (!hasOrderConfirm && changeToConfirmState) {
     return (
       <div className="bg-rose-50 w-150 p-6 max-h-200 h-150 flex flex-col justify-between rounded-xl">
-        <img src="/Svgs/confirm-order.svg" alt="" className="w-10 " />
-        <h1 className="text-3xl text-rose-900 font-bold">Order Confirmed</h1>
+        {/* <img src="/Svgs/confirm-order.svg" alt="" className="w-10 " /> */}
+        <h1 className="text-3xl text-rose-900 font-bold">Confirm Order</h1>
         <p className="text-xs">We hope you enjoy your food!</p>
         {/* strech the list and push the button to the end  */}
         <div className="flex-auto max-h-100 h-fit bg-rose-100 flex p-4  flex-col justify-between rounded-xl ">

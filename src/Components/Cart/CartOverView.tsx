@@ -13,7 +13,7 @@ import useDialog, { type showMessageArguments } from "../../Hooks/useDialog";
 import {
   dialogClass,
   dialogClassAnimation,
-} from "../Services/reUseTailwindClass";
+} from "../../Services/reUseTailwindClass";
 const CartOverView = ({
   cartList,
   message,

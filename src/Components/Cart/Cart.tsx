@@ -26,10 +26,7 @@ const Cart = (): JSX.Element => {
   const confirmCartList: ReactNode | [] = !isCartEmpty
     ? cart.map((c, i) => <CartItem type={"confirmList"} cart={c} key={i + 1} />)
     : [];
-  function changeToConfirmState() {
-    console.log("tt");
-    setHasOrderConfirm(true);
-  }
+
   useEffect(() => {
     // run this effect to prevent the user to scroll when modal is open and give it back when the modal is closed
     document.body.style.overflow = isModalOpen ? "hidden" : "scroll";

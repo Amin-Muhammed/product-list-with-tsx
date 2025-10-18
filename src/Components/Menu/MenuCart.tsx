@@ -6,7 +6,7 @@ import {
 import type { JSX } from "react";
 import AddToCartButton from "../UI/ReUseUiComp/AddToCartButton";
 import QuantityButtons from "../UI/ReUseUiComp/QuantityButtons";
-import { convertToPrice } from "../Services/convertToPrice";
+import { convertToPrice } from "../../Services/convertToPrice";
 import type { showMessageArguments } from "../../Hooks/useDialog";
 import { useInView } from "react-intersection-observer";
 interface MenuCartProps {

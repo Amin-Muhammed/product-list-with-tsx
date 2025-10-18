@@ -5,7 +5,7 @@ import {
   useMemo,
   useReducer,
 } from "react";
-import { getMenu } from "../Components/Services/getMenu";
+import { getMenu } from "../Services/getMenu";
 import { useSessionData } from "../Hooks/useSessionData";
 
 // ---- Types ----
@@ -144,7 +144,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     fetcher: getMenu,
     expireMs: 0.01 * 60 * 1000, // refresh every 2 minutes for demo purposes
   });
-  
 
   const addToCart = (cartObj: CartType): void => {
     dispatch({ type: "addToCart", payload: cartObj as CartType });

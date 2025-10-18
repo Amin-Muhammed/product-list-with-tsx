@@ -7,7 +7,7 @@ import useDialog from "../../Hooks/useDialog";
 import {
   dialogClass,
   dialogClassAnimation,
-} from "../Services/reUseTailwindClass";
+} from "../../Services/reUseTailwindClass";
 import { OrbitProgress } from "react-loading-indicators";
 import { useInView } from "react-intersection-observer";
 
@@ -15,18 +15,12 @@ const Menu = (): JSX.Element => {
   const { menu } = useMenu();
   // const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const { message, showMessage } = useDialog();
- 
 
   // safer typing
   const menuComponents: JSX.Element[] = useMemo(
     () =>
       menu.map((m: MenuTypes) => (
-        <MenuCart
-         
-          menu={m}
-          key={m.name}
-          showMessage={showMessage}
-        />
+        <MenuCart menu={m} key={m.name} showMessage={showMessage} />
       )),
     [menu]
   );

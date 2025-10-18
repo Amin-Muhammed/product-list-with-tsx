@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { convertToPrice } from "../Services/convertToPrice";
+import { convertToPrice } from "../../Services/convertToPrice";
 import { useMenu } from "../../Contexts/CartProvider";
 const Total = (): ReactNode => {
   const { cart } = useMenu();
