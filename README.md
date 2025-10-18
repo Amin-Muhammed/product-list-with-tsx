@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Amin-Muhammed/product-list-with-tsx.git](https://www.frontendmentor.io/solutions/product-list-with-cart-using-react-vite-ts-tailwind-framer-motion)
-- Live Site URL: [papaya-nougat-0675bf.netlify.app](https://amin-muhammed.github.io/product-list-with-tsx)
+- Solution URL: [https://github.com/Amin-Muhammed/product-list-with-tsx.git](https://github.com/Amin-Muhammed/product-list-with-tsx.git)
+- Live Site URL: [papaya-nougat-0675bf.netlify.app](papaya-nougat-0675bf.netlify.app)
 
 ---
 
