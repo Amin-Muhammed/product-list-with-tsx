@@ -3,7 +3,7 @@ import { useMenu, type CartType } from "../../Contexts/CartProvider";
 import Button from "../UI/ReUseUiComp/Button";
 import { convertToPrice } from "../../Services/convertToPrice";
 import { type showMessageArguments } from "../../Hooks/useDialog";
-import Total from "./Total";
+
 interface CartItemProps {
   cart: CartType;
   showMessage?: ({ message, duration }: showMessageArguments) => void;

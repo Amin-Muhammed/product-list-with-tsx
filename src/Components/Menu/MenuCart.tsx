@@ -9,11 +9,11 @@ import QuantityButtons from "../UI/ReUseUiComp/QuantityButtons";
 import { convertToPrice } from "../../Services/convertToPrice";
 import type { showMessageArguments } from "../../Hooks/useDialog";
 import { useInView } from "react-intersection-observer";
+import emptyCartImg from "/MenuImages/empty-cart.png";
 interface MenuCartProps {
   menu: MenuTypes;
   showMessage: ({ message, duration }: showMessageArguments) => void;
 }
-import sss from "/MenuImages/image-baklava-desktop.jpg"; // to avoid error
 
 const MenuCart = ({ menu, showMessage }: MenuCartProps): JSX.Element | null => {
   const { addToCart, cart, decQuantity } = useMenu();
@@ -27,7 +27,6 @@ const MenuCart = ({ menu, showMessage }: MenuCartProps): JSX.Element | null => {
     { src: menu.image.tablet, media: "(min-width: 640px)" },
     { src: menu.image.mobile, media: "(max-width: 639px)" },
   ];
-  console.log(menu.image.mobile, sss);
   const btnStyle =
     "w-[clamp(155px,69%,180px)] max-h-8 absolute flex py-1.5 items-center -bottom-3 left-[50%] -translate-x-[50%] rounded-2xl border-red border-1 "; // can use memo if it got to big
 
@@ -55,6 +54,7 @@ const MenuCart = ({ menu, showMessage }: MenuCartProps): JSX.Element | null => {
     addToCart(cartObj);
     showMessage({ message: `${menu.name} added to the cart` });
   }
+  console.log(menu.image.desktop);
   function handleDecreaseQuantity(): void {
     if (!cartItem) return; // safety check}
     decQuantity(cartItem.id);
@@ -98,12 +98,16 @@ const MenuCart = ({ menu, showMessage }: MenuCartProps): JSX.Element | null => {
           <source key={idx} srcSet={s.src} media={s.media} />
         ))}
         <img
-          src={menu.image.mobile} // fallback image
+          src={menu.image.mobile || emptyCartImg} // fallback image, if the img is not provided fall back to emptyCartImg
           alt={menu.name}
           className={` w-full rounded-lg ${
             !isQuantityZero && "border-1 border-red"
           }`} // if quantity is not zero, add border
           loading="lazy"
+          onError={(e) => {
+            e.currentTarget.onerror = null; // run the handler once to prevent infinite loop
+            e.currentTarget.src = emptyCartImg;
+          }}
         />
       </picture>
 

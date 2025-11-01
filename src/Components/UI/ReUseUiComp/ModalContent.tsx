@@ -7,7 +7,7 @@ interface ModalContentProps {
   cart: Iterable<ReactNode>;
   setIsModalOpen: () => void;
   hasOrderConfirm: boolean;
-  changeToConfirmState: React.SetStateAction<boolean>;
+  changeToConfirmState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const ModalContent = ({
   cart,
