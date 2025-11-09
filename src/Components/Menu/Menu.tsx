@@ -9,22 +9,31 @@ import {
   dialogClassAnimation,
 } from "../../Services/reUseTailwindClass";
 import { OrbitProgress } from "react-loading-indicators";
-import { useInView } from "react-intersection-observer";
 
 const Menu = (): JSX.Element => {
-  const { menu } = useMenu();
+  const { menu, errorMessage } = useMenu();
   // const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const { message, showMessage } = useDialog();
 
   // safer typing
   const menuComponents: JSX.Element[] = useMemo(
     () =>
-      menu.map((m: MenuTypes) => (
-        <MenuCart menu={m} key={m.name} showMessage={showMessage} />
-      )),
-    [menu]
+      menu
+        ? menu.map((m: MenuTypes) => (
+            <MenuCart menu={m} key={m.name} showMessage={showMessage} />
+          ))
+        : [],
+    [menu, showMessage]
   );
-
+  if (errorMessage) {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <p className="text-red-500 text-lg">
+          some Error occured: {errorMessage.message}
+        </p>
+      </div>
+    );
+  }
   // function handleDialog() {
   //   setIsDialogOpen((prev) => {
   //     // this is always return true the false is only to reset the animation and then make it true again

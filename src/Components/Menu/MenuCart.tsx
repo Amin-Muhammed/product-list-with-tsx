@@ -112,10 +112,14 @@ const MenuCart = ({ menu, showMessage }: MenuCartProps): JSX.Element | null => {
       </picture>
 
       <div className="flex flex-col justify-center">
-        <h5 className="text-sm  lg:text-base text-rose-500">{menu.category}</h5>
-        <h3 className="lg:text-lg text-base font-semibold ">{menu.name}</h3>
+        <h5 className="text-sm  lg:text-base text-rose-500">
+          {menu?.category || "unspecified category"}
+        </h5>
+        <h3 className="lg:text-lg text-base font-semibold ">
+          {menu?.name || "name not provided"}
+        </h3>
         <h4 className="text-red justify-self-end ">
-          {convertToPrice({ price: menu.price })}
+          {convertToPrice({ price: menu?.price }) || "$0.00"}
         </h4>
       </div>
     </div>

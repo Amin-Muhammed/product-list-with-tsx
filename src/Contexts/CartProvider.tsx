@@ -56,7 +56,8 @@ type ActionType =
   | { type: "addToCart"; payload: CartType }
   | { type: "decQuantity"; payload: CartType["id"] } // id
   | { type: "removeItemFromCart"; payload: CartType["id"] } //payload is id so its a number;
-  | { type: "startNewOrder" }; // no need to put payload
+  | { type: "startNewOrder" } // no need to put payload
+  | { type: "setError"; payload: CartContextValue["errorMessage"] }; // no need to put payload
 
 // ---- Context ----
 const CartProviderContext = createContext<CartContextValue | undefined>(
@@ -75,7 +76,7 @@ const reducer = (state: CartState, action: ActionType): CartState => {
     case "setMenuData":
       return {
         ...state,
-        menu: action.payload as MenuTypes[], // ✅ menu instead of cart
+        menu: action.payload as MenuTypes[],
       };
 
     case "addToCart": {
@@ -158,11 +159,12 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: "startNewOrder" });
   };
   useEffect(() => {
-    console.log(data);
     if (data) {
       dispatch({ type: "setMenuData", payload: data });
+    } else if (error) {
+      dispatch({ type: "setError", payload: error });
     }
-  }, [data]);
+  }, [data, error]);
   const value: CartContextValue = useMemo(
     () => ({
       ...state,
